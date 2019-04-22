@@ -1,12 +1,16 @@
 <script>
-  import Home from './Home.svelte'
-  import About from './About.svelte'
-  import Contact from './Contact.svelte'
+  import Inertia from './Inertia.js'
+  export let initialPage, resolveComponent
 
-  export let initialPage;
+  let page = null
+  let props = null
 
-  let pages = { Home, About, Contact }
-  let page = pages[initialPage.component]
+  Inertia.init(initialPage, (newPage) => {
+    return Promise.resolve(resolveComponent(newPage.component)).then(instance => {
+      page = instance
+      props = newPage.props
+    })
+  })
 </script>
 
-<svelte:component this={page} {...initialPage.props} />
+<svelte:component this={page} {...props} />
