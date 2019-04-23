@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
 
 /*
@@ -23,4 +24,10 @@ Route::get('/about', function () {
 
 Route::get('/contact', function () {
     return Inertia::render('Contact');
+});
+
+Route::post('/contact', function () {
+    Request::validate(['name' => 'required']);
+
+    return 'Hi there '.Request::get('name');
 });

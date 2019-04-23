@@ -1,5 +1,5 @@
 <script>
-  import Inertia from './Inertia.js'
+  import Inertia from 'inertia'
   export let initialPage, resolveComponent
 
   let page = null

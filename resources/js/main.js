@@ -1,8 +1,8 @@
-import Inertia from './Inertia.svelte'
+import Inertia from './Shared/Inertia.svelte'
 
-import Home from './Home.svelte'
-import About from './About.svelte'
-import Contact from './Contact.svelte'
+import Home from './Pages/Home.svelte'
+import About from './Pages/About.svelte'
+import Contact from './Pages/Contact.svelte'
 
 let App = document.getElementById('app')
 

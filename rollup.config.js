@@ -2,11 +2,14 @@ import svelte from 'rollup-plugin-svelte';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
+import rollupJson from 'rollup-plugin-json';
+import replace from 'rollup-plugin-replace';
+
 
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-	input: 'src/main.js',
+	input: 'resources/js/main.js',
 	output: {
 		sourcemap: true,
 		format: 'iife',
@@ -29,8 +32,12 @@ export default {
 		// some cases you'll need additional configuration —
 		// consult the documentation for details:
 		// https://github.com/rollup/rollup-plugin-commonjs
-		resolve(),
+		resolve({ jsnext: true, preferBuiltins: true, browser: true }),
+		replace({
+			'process.env.NODE_ENV': '"production"',
+		}),
 		commonjs(),
+		rollupJson(),
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
