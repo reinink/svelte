@@ -14,7 +14,7 @@ function visit(event) {
 }
 </script>
 
-<a href="{href}" {...$$props} on:click={visit}>
+<a href="{href}" on:click={visit}>
   <slot/>
 </a>
 
