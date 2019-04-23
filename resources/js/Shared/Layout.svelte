@@ -1,7 +1,7 @@
 <script>
   import Link from './Link.svelte'
   export let title
-  document.title = title
+  $: { document.title = title }
 </script>
 
 <div class="max-w-md mx-auto">
