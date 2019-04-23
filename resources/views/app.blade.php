@@ -8,7 +8,7 @@
     <link href="bundle.css" rel="stylesheet">
     <link href="nprogress.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js" defer></script>
-    <script src="bundle.js" defer></script>
+    <script src="bundle.js?v={{ md5_file(public_path('bundle.js')) }}" defer></script>
 </head>
 <body>
 
